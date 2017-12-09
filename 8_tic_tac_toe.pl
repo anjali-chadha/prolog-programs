@@ -2,12 +2,16 @@
 
 % Since we are playing this game as 'x' player.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Give your input here
 % Facts: Initial position of the board
-p(x, 1, 1).
-p(x, 2, 3).
-p(o, 3, 1).
-p(o, 3, 3).
 
+p(x,1,1).
+p(x,1,3).
+p(o,3,1).
+p(o,1,3).
+
+%%%%%%%%%%%%%%%%%%%%%%%
 player(x).
 player(o).
 
@@ -31,7 +35,7 @@ twoInRow(P, R) :-
 	column(A),
 	column(B),
 	p(P, R, B),
-	A =\= B, !.
+	A =\= B.
 
 twoInCol(P,C) :-
 	player(P),
@@ -40,7 +44,7 @@ twoInCol(P,C) :-
 	row(A),
 	p(P, B, C),
 	row(B),
-	A =\= B, !.
+	A =\= B.
 
 twoInMainDiag(P) :-
 	player(P),
@@ -48,7 +52,7 @@ twoInMainDiag(P) :-
 	p(P, B, B),
 	row(A), column(A),
 	row(B), column(B),
-	A =\= B, !.
+	A =\= B.
 
 twoInOffDiag(P) :-
 	player(P),
@@ -56,7 +60,7 @@ twoInOffDiag(P) :-
 	row(A),
 	p(P, B, comp(B, A)),
 	row(B),
-	A =\= B, !.
+	A =\= B.
 
 % ------------canWin Rules ---------------	
 canWin(P, R, C) :- 
@@ -92,8 +96,8 @@ canWin(P, R, C) :-
 
 % -------------forcedMove Rules -----------
 forcedMove(P, R, C) :-
-        row(R),
-        column(C),
+    row(R),
+    column(C),
 	player(P),
 	player(Q),
 	opponent(P,Q),
@@ -105,11 +109,13 @@ ttt_move(P, R, C) :-
         row(R),
         column(C),
 	player(P),
-	canWin(P, R, C).
+	canWin(P, R, C),
+	write('go for win!').
 
 ttt_move(P, R, C) :-
 	row(R),
         column(C),
 	player(P),
-	forcedMove(P, R, C).
+	forcedMove(P, R, C),
+	write('move to block opponent').
 

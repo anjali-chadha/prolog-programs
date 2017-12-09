@@ -11,6 +11,6 @@ puzzle(S,E,N,D,M,O,R,Y) :-
 	lists:select(M, WSEND, WSENDM),
 	lists:select(O, WSENDM, WSENDMO),
 	lists:select(R, WSENDMO, WSENDMOR),
-	lists:select(Y, WSENDMOR, WSENDMORY),
+	lists:select(Y, WSENDMOR, _),
 	Money =:= Send + More,
 	S \= 0, M \= 0.

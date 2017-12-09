@@ -1,15 +1,19 @@
 % Wumpus World - 4 * 4 cave.
 % Coordinate System - (C, R)
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Give your input here
 % Facts - Predicates
-visited(4, 1).
-visited(4, 2).
+
+visited(4,1).
+visited(4,2).
 visited(4,3).
-visited(4, 4).
-stench(4, 2).
-breeze(4, 3).
+visited(4,4).
+stench(4,2).
+breeze(4,3).
 breeze(4,4).
 
+%%%%%%%%%%%%%%%%%%%%%%%
 % List unvisted rooms adjacent to visited ones
 candidate(C, R) :-
 	visited(C_old, R),
